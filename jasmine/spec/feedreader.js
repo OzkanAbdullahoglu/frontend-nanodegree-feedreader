@@ -145,7 +145,6 @@ $(function() {
     //to set a timeout which is 1 ms less then Jasmine default timeout cause of asynchronousity 
     it('is working properly and all content changes', function(done) {
       setTimeout(function() {
-        console.log(feedHtml[3]);
         for (i = 0; i < feedHtml.length; i++) {
           expect(feedHtml[i]).not.toEqual(feedHtml[i + 1]);
           expect(feedHtml[i]).toBeDefined();
