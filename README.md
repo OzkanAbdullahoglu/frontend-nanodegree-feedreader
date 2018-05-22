@@ -9,6 +9,8 @@
 ## Instructions
 
 In this project you are given a web-based application that reads RSS feeds. The original developer of this application clearly saw the value in testing, they've already included [Jasmine](http://jasmine.github.io/) and even started writing their first test suite! Unfortunately, they decided to move on to start their own company and we're now left with an application with an incomplete test suite. That's where you come in.
+This app can be run directly from this link https://ozkanabdullahoglu.github.io/frontend-nanodegree-feedreader/
+Or you can use a chrome extension to set a localhost easily. Please check this link for installation & instructions about Web Server for Chrome https://chrome.google.com/webstore/detail/web-server-for-chrome/ofhbbkphhbklhfoeikjpcbhemlocgigb?hl=en
 
 ## Project Rubric Criterias
 #### Test Suite ***'RSS Feeds'***
