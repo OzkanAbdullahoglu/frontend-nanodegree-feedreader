@@ -15,6 +15,7 @@ You can use a chrome extension to set a localhost easily. Please check this link
 <p align="center">
   <img src="webserverforchrome.gif" alt="Webserver for Chrome Demonstration"
        width="654" height="450"></p>
+       
 ## Project Rubric Criterias
 #### Test Suite ***'RSS Feeds'***
 Here first we are checking If  `allFeed` array is defined as a variable and It is not an empty array.
