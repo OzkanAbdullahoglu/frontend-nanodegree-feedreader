@@ -15,7 +15,7 @@ You can use a chrome extension to set a localhost easily. Please check this link
 <p align="center">
   <img src="webserverforchrome.gif" alt="Webserver for Chrome Demonstration"
        width="654" height="450"></p>
-       
+
 ## Project Rubric Criterias
 #### Test Suite ***'RSS Feeds'***
 Here first we are checking If  `allFeed` array is defined as a variable and It is not an empty array.
@@ -29,8 +29,8 @@ Then we are testing If slider menu show/hide functionality is working properly. 
 We are checking If we get any feed entry when `loadFeed()` function is called. Because of asynchronousity we use `beforeEach` function first.
 
 #### Test Suite ***'New Feed Selection'***
-When a new feed selected all contents have to be changed and unique to eachother. To test this properly, we create and array to collect feeds content which is `feedHtml`. In `beforeEach` function we set a loop which calls `loadFeed()` for all elements of `allFeeds` and push them into the `feedHtml` array. 
-Then we are comparing all contents incremently to eachother and we are expecting them `not.toEqual` eachother. 
+When a new feed selected all contents have to be changed and unique to eachother. To test this properly, we create and array to collect feeds content which is `feedHtml`. In `beforeEach` function we  call `loadFeed()` twice and push them into the `feedHtml` array. 
+Then we are comparing contents incremently to eachother and we are expecting them `not.toEqual` eachother. 
 
 ## Built With
 In this project below extensions are used;
