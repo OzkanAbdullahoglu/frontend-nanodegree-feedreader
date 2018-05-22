@@ -13,9 +13,8 @@ In this project you are given a web-based application that reads RSS feeds. The 
 You can use a chrome extension to set a localhost easily. Please check this link for installation & instructions about [Web Server for Chrome](https://chrome.google.com/webstore/detail/web-server-for-chrome/ofhbbkphhbklhfoeikjpcbhemlocgigb?hl=en)
 
 <p align="center">
-  <img src=".webserverforchrome.gif" alt="Webserver for Chrome Demonstration"
+  <img src="webserverforchrome.gif" alt="Webserver for Chrome Demonstration"
        width="654" height="450"></p>
-       
 ## Project Rubric Criterias
 #### Test Suite ***'RSS Feeds'***
 Here first we are checking If  `allFeed` array is defined as a variable and It is not an empty array.
