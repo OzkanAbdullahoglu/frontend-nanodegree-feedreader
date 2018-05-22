@@ -16,24 +16,13 @@ $(function() {
    */
   describe('RSS Feeds', function() {
 
-    /* This is our first test - it tests to make sure that the
-     * allFeeds variable has been defined and that it is not
-     * empty. Experiment with this before you get started on
-     * the rest of this project. What happens when you change
-     * allFeeds in app.js to be an empty array and refresh the
-     * page?
-     */
-    //checking If allFeeds variable is defined and array is not epmty
+    //checking If allFeeds variable is defined and array is not empty
     it('are defined', function() {
       expect(allFeeds).toBeDefined();
       expect(allFeeds.length).not.toBe(0);
     });
 
-    /* TODO: Write a test that loops through each feed
-     * in the allFeeds object and ensures it has a URL defined
-     * and that the URL is not empty.
-     */
-    //cecking If allFeeds all elements has an url property and not an empty url property
+    //checking If allFeeds all elements has an url property and not an empty url property
     it('has URL', function() {
       for (i = 0; i < allFeeds.length; i++) {
         expect(allFeeds[i].url).toBeDefined();
@@ -41,10 +30,6 @@ $(function() {
       };
     });
 
-    /* TODO: Write a test that loops through each feed
-     * in the allFeeds object and ensures it has a name defined
-     * and that the name is not empty.
-     */
     //checking If allFeeds all elements has a name property and not an empty name property
     it('has name', function() {
       for (i = 0; i < allFeeds.length; i++) {
@@ -54,53 +39,34 @@ $(function() {
     });
   });
 
-  /* TODO: Write a new test suite named "The menu" */
   describe('The Menu', function() {
 
-    /* TODO: Write a test that ensures the menu element is
-     * hidden by default. You'll have to analyze the HTML and
-     * the CSS to determine how we're performing the
-     * hiding/showing of the menu element.
-     */
     //selecting element which class is  '.menu.hidden' is hiding slider menu by default.
     //checking If we have this class inside the dom by default.
     it('is hidden by default', function() {
-      var getElement = $('.menu-hidden');
-      expect(getElement.length).not.toBe(0);
+      var getElement = $('body');
+      expect(getElement).toHaveClass('menu-hidden');
     });
 
-    /* TODO: Write a test that ensures the menu changes
-     * visibility when the menu icon is clicked. This test
-     * should have two expectations: does the menu display when
-     * clicked and does it hide when clicked again.
-     */
-    //selecting element which class is '.menu-hidden'
+    //selecting body element 
     //selecting element which triggers slider menu on click
     //create a click to test If '.menu-hidden' class is removed and slider menu displays 
-    //create a second clidk to test If '.menu-hidden' class is re-implement and slider menu hides
+    //create a second click to test If '.menu-hidden' class is re-implement and slider menu hides
     it('show/hide functionality is working properly', function() {
-      var getElement = $('.menu-hidden');
+      var getElement = $('body');
       var menuIcon = $('.menu-icon-link');
       var eventType = spyOnEvent('.menu-icon-link', 'click');
       menuIcon.click();
       expect('click').toHaveBeenTriggeredOn('.menu-icon-link');
       expect(eventType).toHaveBeenTriggered();
-      expect(getElement.attr('class')).not.toEqual("menu-hidden");
+      expect(getElement).not.toHaveClass('menu-hidden');
       menuIcon.click();
       expect('click').toHaveBeenTriggeredOn('.menu-icon-link');
       expect(eventType).toHaveBeenTriggered();
-      expect(getElement.attr('class')).toEqual("menu-hidden");
+      expect(getElement).toHaveClass('menu-hidden');
     });
   });
 
-  /* TODO: Write a new test suite named "Initial Entries" */
-
-  /* TODO: Write a test that ensures when the loadFeed
-   * function is called and completes its work, there is at least
-   * a single .entry element within the .feed container.
-   * Remember, loadFeed() is asynchronous so this test will require
-   * the use of Jasmine's beforeEach and asynchronous done() function.
-   */
   describe('Initial Entries', function() {
     //selecting feeds in DOM
     var getFeeds = $('.feed');
@@ -113,44 +79,30 @@ $(function() {
     });
     //expecting feeds implemented to the DOM after loadFeed function called
     it('have at least a single entry in the feed container', function(done) {
-      expect(getFeeds.children().length).not.toBe(0);
+      expect(getFeeds.find('.entry').length).toBeGreaterThan(0);
       done();
     });
   });
 
-  /* TODO: Write a new test suite named "New Feed Selection" */
-
-  /* TODO: Write a test that ensures when a new feed is loaded
-   * by the loadFeed function that the content actually changes.
-   * Remember, loadFeed() is asynchronous.
-   */
   describe('New Feed Selection', function() {
     var getFeeds = $('.feed');
     //creating an array to collect feeds content 
     var feedHtml = [];
     beforeEach(function(done) {
-      //to set a loop which calls loadFeed function for allFeeds
-      //to push contents to feedHtml array
-      setTimeout(function() {
-        for (i = 0; i < allFeeds.length; i++) {
-          loadFeed(i, function() {
-            feedHtml.push(getFeeds.html());
-            done();
-          });
-        };
-      }, 1);
+      //we are calling loadFeed function twice 
+      //we are pushing html content into feedHtml array to compare
+      loadFeed(0, function() {
+        feedHtml.push(getFeeds.html());
+        loadFeed(1, function() {
+          feedHtml.push(getFeeds.html());
+          done();
+        });
+      });
     });
-    //we expect all content has to be different
-    //to set a loop which compares feedHtml elements incremently
-    //to set a timeout which is 1 ms less then Jasmine default timeout cause of asynchronousity 
+    //we expect all content has to be different , so we compare both html content eachother
     it('is working properly and all content changes', function(done) {
-      setTimeout(function() {
-        for (i = 0; i < feedHtml.length; i++) {
-          expect(feedHtml[i]).not.toEqual(feedHtml[i + 1]);
-          expect(feedHtml[i]).toBeDefined();
-        }
-        done();
-      }, 4999);
+      expect(feedHtml[0]).not.toEqual(feedHtml[1]);
+      done();
     });
   });
 }());
