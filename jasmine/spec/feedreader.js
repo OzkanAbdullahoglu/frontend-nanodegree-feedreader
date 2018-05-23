@@ -59,11 +59,11 @@ $(function() {
       menuIcon.click();
       expect('click').toHaveBeenTriggeredOn('.menu-icon-link');
       expect(eventType).toHaveBeenTriggered();
-      expect(getElement).not.toHaveClass('menu-hidden');
+      expect(getElement.hasClass('menu-hidden')).not.toBe(true);
       menuIcon.click();
       expect('click').toHaveBeenTriggeredOn('.menu-icon-link');
       expect(eventType).toHaveBeenTriggered();
-      expect(getElement).toHaveClass('menu-hidden');
+      expect(getElement.hasClass('menu-hidden')).toBe(true);
     });
   });
 
