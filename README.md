@@ -10,7 +10,7 @@
 
 In this project you are given a web-based application that reads RSS feeds. The original developer of this application clearly saw the value in testing, they've already included [Jasmine](http://jasmine.github.io/) and even started writing their first test suite! Unfortunately, they decided to move on to start their own company and we're now left with an application with an incomplete test suite. That's where you come in.
 
-You can use a chrome extension to set a localhost easily. Please check this link for installation & instructions about [Web Server for Chrome](https://chrome.google.com/webstore/detail/web-server-for-chrome/ofhbbkphhbklhfoeikjpcbhemlocgigb?hl=en)
+You can use a chrome extension to set a localhost easily. You should run [index.html](https://ozkanabdullahoglu.github.io/frontend-nanodegree-feedreader/), to use the app. Please check this link for installation & instructions about [Web Server for Chrome](https://chrome.google.com/webstore/detail/web-server-for-chrome/ofhbbkphhbklhfoeikjpcbhemlocgigb?hl=en)
 
 <p align="center">
   <img src="webserverforchrome.gif" alt="Webserver for Chrome Demonstration"
@@ -34,5 +34,6 @@ Then we are comparing contents incremently to eachother and we are expecting the
 
 ## Built With
 In this project below extensions are used;
-- Jasmine-Matchers https://github.com/JamieMason/Jasmine-Matchers
-- Jasmine-Jquery https://github.com/velesin/jasmine-jquery 
+
+* [Jasmine-Matchers](https://github.com/JamieMason/Jasmine-Matchers)
+* [Jasmine-Jquery](https://github.com/velesin/jasmine-jquery) 
