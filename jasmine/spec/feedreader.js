@@ -1,13 +1,3 @@
-/* feedreader.js
- *
- * This is the spec file that Jasmine will read and contains
- * all of the tests that will be run against your application.
- */
-
-/* We're placing all of our tests within the $() function,
- * since some of these tests may require DOM elements. We want
- * to ensure they don't run until the DOM is ready.
- */
 $(function() {
 
   /* This is our first test suite - a test suite just contains
@@ -48,9 +38,9 @@ $(function() {
       expect(getElement).toHaveClass('menu-hidden');
     });
 
-    //selecting body element 
+    //selecting body element
     //selecting element which triggers slider menu on click
-    //create a click to test If '.menu-hidden' class is removed and slider menu displays 
+    //create a click to test If '.menu-hidden' class is removed and slider menu displays
     //create a second click to test If '.menu-hidden' class is re-implement and slider menu hides
     it('show/hide functionality is working properly', function() {
       var getElement = $('body');
@@ -86,10 +76,10 @@ $(function() {
 
   describe('New Feed Selection', function() {
     var getFeeds = $('.feed');
-    //creating an array to collect feeds content 
+    //creating an array to collect feeds content
     var feedHtml = [];
     beforeEach(function(done) {
-      //we are calling loadFeed function twice 
+      //we are calling loadFeed function twice
       //we are pushing html content into feedHtml array to compare
       loadFeed(0, function() {
         feedHtml.push(getFeeds.html());
